@@ -23,13 +23,13 @@ jobs:
         dotnet-version: 7.0.x
 
     - name: Restore dependencies
-      run: dotnet restore ./src/GithubNugetTest.BasePackage/GithubNugetTest.BasePackage.csproj
+      run: dotnet restore ./src/ClassLibrary2/ClassLibrary2.csproj
 
     - name: Build
-      run: dotnet build ./src/GithubNugetTest.BasePackage/GithubNugetTest.BasePackage.csproj --configuration Release --no-restore
+      run: dotnet build ./src/ClassLibrary2/ClassLibrary2.csproj --configuration Release --no-restore
 
     - name: Pack
-      run: dotnet pack ./src/GithubNugetTest.BasePackage/GithubNugetTest.BasePackage.csproj --configuration Release --no-build --output ./src/GithubNugetTest.BasePackage/bin/Release
+      run: dotnet pack ./src/ClassLibrary2/ClassLibrary2.csproj --configuration Release --no-build --output ./src/ClassLibrary2/bin/Release
     
     - name: NuGet Push
-      run: dotnet nuget push "./src/GithubNugetTest.BasePackage/bin/Release/*.nupkg" --source "https://nuget.pkg.github.com/poyrazym/index.json" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push "./src/ClassLibrary2/bin/Release/*.nupkg" --source "https://nuget.pkg.github.com/poyrazym/index.json" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }}
