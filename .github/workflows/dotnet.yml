@@ -31,10 +31,9 @@ jobs:
       run: dotnet pack ./src/ClassLibrary2/ClassLibrary2.csproj --configuration Release --no-build --output ./src/ClassLibrary2/bin/Release
 
     - name: NuGet Push
-      run: dotnet nuget push ".\src\ClassLibrary2\bin\Release\*.nupkg" --source "https://nuget.pkg.github.com/poyrazym/index.json" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push "./src/ClassLibrary2/bin/Release/*.nupkg" --source "https://nuget.pkg.github.com/poyrazym/index.json" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }}
       
     - name: Print folder contents
       if: ${{ failure() }}
       run: |
-        ls -R .\src
-        ls -R D:\a
+        ls -R ./src
