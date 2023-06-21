@@ -6,8 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Company>POYRAZYM</Company>
+		<PackageId>ClassLibrary2</PackageId>
+		<Version>1.0.1</Version>
+		<Authors>Yasin Mert POYRAZ</Authors>
+		<Descriptions>Deneme</Descriptions>
+		<RepositoryUrl>https://github.com/poyrazym</RepositoryUrl>
+	</PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="ClassLibrary1" Version="1.0.0" />
+    <PackageReference Include="ClassLibrary1" Version="1.0.1" />
   </ItemGroup>
 
 </Project>
