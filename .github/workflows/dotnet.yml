@@ -20,12 +20,12 @@ jobs:
         dotnet-version: 7.0.x
 
     - name: Add github source
-      run: dotnet nuget add source https://nuget.pkg.github.com/poyrazym/index.json -n github -u poyrazym -p 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 --store-password-in-clear-text
+      run: dotnet nuget add source https://nuget.pkg.github.com/poyrazym/index.json -n github -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_TOKEN }} --store-password-in-clear-text
     - name: Restore dependencies
       run: dotnet restore ./src/ClassLibrary2/ClassLibrary2.csproj
 
     - name: Build
-      run: dotnet build ./src/ClassLibrary2/ClassLibrary2csproj --configuration Release --no-restore
+      run: dotnet build ./src/ClassLibrary2/ClassLibrary2.csproj --configuration Release --no-restore
 
     - name: Pack
       run: dotnet pack ./src/ClassLibrary2/ClassLibrary2.csproj --configuration Release --no-build --output ./src/ClassLibrary2/bin/Release
